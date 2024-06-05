@@ -38,6 +38,10 @@ public class Postagem {
 	@JsonIgnoreProperties("Postagem") // ignorando as postagens na lista de tema, pra não dar um loop infinito
 	private Tema tema;
 	
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	private Usuario usuario;
+	
 	
 	
 

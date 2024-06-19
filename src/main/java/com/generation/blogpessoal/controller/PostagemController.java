@@ -59,7 +59,7 @@ public class PostagemController {
 	//INSERT INTO tb_postagens (titulo, texto, data) VALUES ("Título", "Texto", "2024-12-31 14:05:01");
 	@PostMapping
 	public ResponseEntity<Postagem> post(@Valid @RequestBody Postagem postagem){
-		if (postagemRepository.existsById(postagem.getId())) {
+		
 			
 			if (temaRepository.existsById(postagem.getTema().getId()))
 		//retorno em formato ResponseEntity
@@ -68,10 +68,6 @@ public class PostagemController {
 		
 		throw new ResponseStatusException (HttpStatus.BAD_REQUEST, "Tema não existe!", null);
 		
-
-	}
-	
-	return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
 	}
 	@PutMapping
